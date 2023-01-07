@@ -6,7 +6,8 @@
     --left-btn-hover-color: rgba(112, 110, 201, 1);
     --right-btn-hover-color: rgba(28, 122, 28, 1);
     --hover-width: 70%;
-    --other-width: 30%
+    --other-width: 30%;
+    --speed: 1000ms;
 }
 
 * {
@@ -54,7 +55,6 @@ body {
     background-repeat: no-repeat;
     background-size: cover;
     right: 0;
-    background-position: center;
 }
 
 .split.right::before {
@@ -118,4 +118,65 @@ body {
 
 .hover-right .left {
     width: var(--other-width);
+}
+
+.split.right,
+.split.left,
+.split.right::before,
+.split.left::before {
+    transition: all var(--speed) ease-in-out;
+}
+
+@media (max-width:650px) {
+    .split h1 {
+        font-size: 2rem;
+        top: 25%;
+    }
+
+    .btn {
+        font-size: 0.6rem;
+        padding: 10px;
+        width: 8rem;
+    }
+}
+
+@media (max-width:450px) {
+    .split h1 {
+        font-size: 1rem;
+        top: 30%;
+    }
+
+    .btn {
+        font-size: 0.4rem;
+        padding: 7px;
+        width: 5rem;
+    }
+
+    .split.left {
+        background-position: center;
+    }
+
+    .split.right {
+        background-position: center;
+    }
+
+    .hover-left .left {
+        width: 90%;
+    }
+
+    .hover-left .split.right {
+        width: 10%;
+    }
+
+    .hover-right .right {
+        width: 90%;
+    }
+
+    .hover-right .split.left {
+        width: 10%;
+    }
+
+    .split.left {
+        background-position: contain;
+    }
 }
